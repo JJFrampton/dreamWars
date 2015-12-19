@@ -4,58 +4,71 @@
 
 
 
-/*where index numbers represent win loss draw
-0 = win
-1 = loss
-2 = draw
-*/
 
 var cmpt = function() {
   
   
-  var r = ["s", "p", "r"];
-  var p = ["r", "s", "p"];
-  var s = ["p", "r", "s"];
+  var A = ["B","C","D","E","F","G","A"];
+  var B = ["C","D","E","F","G","A","B"];
+  var C = ["D","E","F","G","A","B","C"];
+  var D = ["E","F","G","A","B","C","D"];
+  var E = ["F","G","A","B","C","D","E"];
+  var F = ["G","A","B","C","D","E","F"];
+  var G = ["A","B","C","D","E","F","G"];
   
+  
+  // First round
 
-  var p1Choice = prompt('Player 1, select weapon r, p, or s','');
 
+  var p1Choice = prompt('Player 1, select weapon A-G','');
   
   
-   //This area is problematic for scaling
-  
-  if (p1Choice === "r") {
-    p1Choice = r;
+  if (p1Choice === "A") {
+    p1Choice = A;
   }
-  if (p1Choice === "p") {
-    p1Choice = p;
+  if (p1Choice === "B") {
+    p1Choice = B;
   }
-  if (p1Choice === "s") {
-    p1Choice = s;
+  if (p1Choice === "C") {
+    p1Choice = C;
+  }
+   if (p1Choice === "D") {
+    p1Choice = D;
+  }
+   if (p1Choice === "E") {
+    p1Choice = E;
+  }
+   if (p1Choice === "F") {
+    p1Choice = F;
+  }
+   if (p1Choice === "G") {
+    p1Choice = G;
   }
 
-  //This area is problematic for scaling
+ 
+  console.log("Player 1s index is <" + p1Choice +">. Where P1 beats the first 3, looses to the next 3 and ties with the last... therefore P1s choice was the last.");
+ 
   
   
-  
-  console.log("Player 1s index is <" + p1Choice +">. Where P1 beats the first, looses to the second and ties with the last... therefore P1s choice was the last.");
-  
-  var p2Choice = prompt('Player 2, select weapon r, p, or s','');
+  var p2Choice = prompt('Player 2, select weapon A-G','');
   console.log("Player 2 chose " + p2Choice);
   
     var winner;
   
-    if (p2Choice === p1Choice[0]) {
+    if (p2Choice === p1Choice[0] | p1Choice[1] | p1Choice[2]) {
       alert("Player 1 wins this round!");
       winner = "p1";
     }
-    if (p2Choice === p1Choice[1]) {
+    if (p2Choice === p1Choice[3] | p1Choice[4] | p1Choice[5]) {
       alert("Player 2 wins this round!");
       winner = "p2";
     }
-    if (p2Choice === p1Choice[2]) {
+    if (p2Choice === p1Choice[6]) {
       alert("Its a draw!");
     }
+  
+  
+  // Second round
   
   
   if (winner === "p1") {
